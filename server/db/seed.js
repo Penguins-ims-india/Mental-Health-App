@@ -4,19 +4,20 @@ const loremIpsum = require('lorem-ipsum').LoremIpsum;
 //setup lorem-ipsum
 const lorem = new loremIpsum();
 
-function seed() {
-
+(function async () {
   let user1, user2;
 
-  const options = { where: {}}
+  const options = { where: {} };
 
   //clear database
   return User.destroy(options)
     .then(() => Journals.destroy(options))
     .then(() => Moods.destroy(options))
     .then(() => Habits.destroy(options))
-    .then(() => {console.info('Cleared tables')})
-    .then(() => (
+    .then(() => {
+      console.info('Cleared tables');
+    })
+    .then(() =>
       User.create({
           username: lorem.generateWords(1),
           location: lorem.generateWords(2),
@@ -27,21 +28,21 @@ function seed() {
       user1 = user;
       console.log(user1);
     })
-    .then(() =>(
+    .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
         body: lorem.generateParagraphs(1),
         UserId: user1.id,
-      })
-    ))
-    .then(() => (
+      }),
+    )
+    .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
         body: lorem.generateParagraphs(1),
         UserId: user1.id,
-      })
-    ))
-    .then(() => (
+      }),
+    )
+    .then(() =>
       User.create({
           username: lorem.generateWords(1),
           location: lorem.generateWords(2),
@@ -52,24 +53,33 @@ function seed() {
       user2 = user;
       console.log(user2);
     })
-    .then(() =>(
+    .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
         body: lorem.generateParagraphs(1),
         UserId: user2.id,
-      })
-    ))
-    .then(() => (
+      }),
+    )
+    .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
         body: lorem.generateParagraphs(1),
         UserId: user2.id,
+      }),
+    )
+    .then(() => {
+      Habits.create({
+        description: lorem.generateWords(5),
+        goal: 4,
+        timesCompleted: 2,
+        isComplete: false,
+        streak: 3,
       })
-    ))
-    .then(() => { console.info('Seeded database') })
-    .catch((err) => {
-      console.error('Could not seed database: ', err)
     })
-}
-
-module.exports.seed = seed;
+    .then(() => {
+      console.info('Seeded database');
+    })
+    .catch((err) => {
+      console.error('Could not seed database: ', err);
+    });
+})();

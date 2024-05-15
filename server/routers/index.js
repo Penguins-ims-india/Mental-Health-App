@@ -5,12 +5,12 @@ const userController = require('./userController');
 
 const router = express.Router();
 
+// Weather Routers
+router.route('/weather').get(weatherController.getWeather);
+
 // User Routers
 router.route('/:UserId').get(userController.getUser);
 router.route('/user').post(userController.addUser);
-
-// Weather Routers
-router.route('/weather').get(weatherController.getWeather);
 
 // Journal Routers
 router.route('/:UserId/journal').get(journalController.getJournals);

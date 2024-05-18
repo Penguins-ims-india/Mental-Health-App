@@ -5,7 +5,7 @@ const sequelize = require('sequelize');
 
 module.exports = {
   getHabits: (req, res) => {
-    const { id } = req.user[0];
+    const { id } = req.user;
     Habits.findAll({
       where: {
         userId: id 

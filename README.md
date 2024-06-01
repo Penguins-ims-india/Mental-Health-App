@@ -15,19 +15,19 @@ When initially opening the app using local host, many of the features on this pa
 The journal feature allows a user to add a title to their journal, type their entry, and save it. Once the journal is saved, all journal entries can be seen on the bottom of the page, and it also includes the date the journal was made. You are then able to click a button to read the entry which takes you to a new view of just the journal in its entirety and here you can edit the journal. You can also delete the journal. You can also scroll through and see all the journals a user has made.
 
 ## MOODS
-The moods feature allows a user to document their mood using a chart. We have 5 standard moods: happy, hopeful, content, worried, and sad. A user is able to click on the specific mood 
+The moods feature allows a user to document their mood using a chart. We have 5 standard moods: happy, hopeful, content, worried, and sad. A user is able to click on the specific mood.
 
 ## HABITS
+Allows you to track your habits that you want to do from day to day. It has a streak feature that will update you habit streak every night showing how long you have been doing a habit for. 
 
 Healthier is a full stack web app made with MERN stack with mysql.
 
+## [Our Stack](./techStack.png)
+
+
 This project was created by Alex Hebert, Arina Nasri, Josh Roberts and Patrick Henry as our greenfield project for Operation Spark.
 
-
-
-
 [Press release](./_PRESS-RELEASE.md)
-
 
 ## Getting Started
 
@@ -39,7 +39,15 @@ This project was created by Alex Hebert, Arina Nasri, Josh Roberts and Patrick H
     * Run `nvm use 22` to switch to node 22
     * Verify with `node --version`
 3. Install node packages with `npm i`
+4. Build the dist folder with `npm run build`
+5. start the mysql daemon with `mysql.server start`
+6. Start the server `npm start`
+7. Open the page by cmd/ctrl + click the output in the terminal
 
+## Env Variables
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+VISUAL_CROSSING_API_KEY=
 
 [Contribution guide](./CONRIBUTING.md)
 [Style guide](./STYLE-GUIDE.md)
